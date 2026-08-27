@@ -1,0 +1,38 @@
+# The dataset. About 6.5 GB, fetched with scripts/get_visa.py
+data/
+
+# Detector weights. The published one (234 MB) comes from scripts/fetch_checkpoint.py,
+# and 01_train.ipynb writes its own next to it.
+artifacts/detector*.pt
+artifacts/*.part
+
+# Measurement and training output: scripts/measure_metrics.py and the notebooks' anomalib runs
+results/
+
+# Model caches
+datasets/
+lightning_logs/
+outputs/
+*.ckpt
+*.pth
+*.onnx
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Tooling
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Agent tooling, not part of the project
+.claude/
+.remember/

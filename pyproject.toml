@@ -1,0 +1,29 @@
+[project]
+name = "pcb-anomaly-detection"
+version = "0.1.0"
+description = "Unsupervised PCB anomaly detection with Dinomaly and anomalib, trained on good boards only."
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "anomalib>=2.0.0",
+    "torch>=2.7.0",
+    "torchvision>=0.22.0",
+    "datasets>=3.0.0",
+    "huggingface-hub>=0.25.0",
+    "pillow>=10.0.0",
+    "opencv-python-headless>=4.10.0",
+    "matplotlib>=3.8.0",
+    "jupyter>=1.0.0",
+]
+
+# `uv sync` installs the CUDA 12.8 torch wheels, which is what the published results were
+# produced on and what RTX 50-series cards require. There are no cu128 wheels for macOS: on a Mac,
+# or on any CPU-only machine, use `pip install -r requirements.txt` instead.
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

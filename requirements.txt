@@ -1,0 +1,13 @@
+# The portable install path, and the only one that works on macOS or a CPU-only machine.
+# `uv sync` (pyproject.toml + uv.lock) pins the exact CUDA build the results were produced on.
+# On an RTX 50-series card install torch from the CUDA 12.8 index first:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+anomalib>=2.0.0
+torch>=2.7.0
+torchvision>=0.22.0
+datasets>=3.0.0
+huggingface-hub>=0.25.0
+pillow>=10.0.0
+opencv-python-headless>=4.10.0
+matplotlib>=3.8.0
+jupyter>=1.0.0
